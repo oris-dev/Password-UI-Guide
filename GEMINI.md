@@ -6,7 +6,7 @@
 - RTL (Right-to-Left) layout support for Hebrew is a core requirement.
 
 ## Tech Stack
-- **React** (JavaScript).
+- **React** (Javascript).
 - **Vanilla CSS** (for layout and custom visual language).
 
 ## UI/UX Principles
@@ -19,7 +19,7 @@
 - Prefer functional components and hooks.
 - Keep components modular and focused.
 - Prioritize accessibility and clear, conversational Hebrew messaging.
-
+- Use explicit types for state management and algorithm rules.
 
 ## Directory Structure
 - `/src/components/`: UI components (Coach, Keyboard, Input).
