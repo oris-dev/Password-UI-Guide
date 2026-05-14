@@ -3,7 +3,14 @@
 The "Magnetic Glow" is the core interactive feature of our Password Coach UI. It transforms the static keyboard into a proactive teaching tool that guides users toward creating stronger, more secure passwords without feeling like a traditional security form.
 
 ## Concept Overview
-Instead of waiting for the user to make a mistake, the keyboard acts as a "magnetic" guide. It subtly pulls the user's attention toward helpful symbols and characters while warning against common weak patterns.
+Instead of waiting for the user to make a mistake, the keyboard acts as a "magnetic" guide. It subtly pulls the user's attention toward helpful symbols and characters while warning against common weak patterns. 
+
+**Note**: This component is optimized for Desktop (PC/Laptop) usage as part of an Active Directory password reset mockup.
+
+## Bulk Input & Edge Cases
+- **Pasting**: When a password is pasted, the keyboard will momentarily "flash" the characters that satisfy complex rules (symbols/caps) to validate the input's strength visually.
+- **Deletion**: Clearing the input resets all key states to Neutral. Deleting a single character updates the "Avoid" and "Invite" pulses based on the new trailing character.
+
 
 ## Interaction States
 

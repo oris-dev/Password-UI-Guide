@@ -26,6 +26,17 @@ This document defines the validation rules for the Password Coach and the corres
 
 ---
 
+## Unit Testing Plan (Vitest/Jest)
+To ensure the Active Directory logic is foolproof, the following test cases must be implemented in `src/hooks/usePasswordCoach.test.js`:
+
+1. **Length Validation**: Confirm strength is 0 for < 10 chars, and increases at 10+.
+2. **Case Sensitivity**: Verify strength boost only when *both* upper and lower case are present.
+3. **Symbol Recognition**: Test with various special characters (!, @, #, $, %, ^).
+4. **Sequence Blocking**: 
+    - Input '123' -> Ensure sequence rule is triggered.
+    - Input 'abc' -> Ensure sequence rule is triggered.
+5. **Bulk Operations**: Verify that pasting a valid strong password correctly calculates all 4 strength levels in one cycle.
+
 ## Visual Language Implementation
 - **Neutral (Gray)**: Default state before typing.
 - **Attention (Soft Red)**: Used when a rule is violated or not yet met.

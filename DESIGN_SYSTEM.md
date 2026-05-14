@@ -137,14 +137,26 @@ body {
     box-sizing: border-box;
     font-family: "Ploni-dl", sans-serif;
     font-weight: 200;
+    /* Accessibility: Ensure minimum contrast ratios are met for all color states */
 }
 
 @font-face {
     font-family: "Ploni-dl";
     font-weight: 200;
+    font-display: swap; /* Prevent layout shift, fallback to sans-serif immediately */
     src: url(../fonts/ploni-ultralight-aaa.woff2) format("woff2"), 
          url(../fonts/ploni-ultralight-aaa.woff) format("woff"), 
          url(../fonts/ploni-ultralight-aaa.ttf) format("truetype"), 
          url(../fonts/ploni-ultralight-aaa.svg#Ploni-dl) format("svg");
 }
+
+## Accessibility (a11y)
+- **Screen Readers**: Use `aria-live="polite"` for the feedback container to announce password strength updates.
+- **Keyboard Navigation**: All interactive elements (input, show/hide toggle) must be focusable via `Tab`.
+- **Contrast**: Neutral and Success states must maintain a 4.5:1 contrast ratio against the background.
+
+## Browser Support
+- **Target**: Microsoft Edge (Latest) and Google Chrome (Latest).
+- **Standards**: Utilize standard CSS Flexbox/Grid and native ARIA attributes for maximum compatibility.
+
 ```

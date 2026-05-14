@@ -25,12 +25,15 @@ The application follows a strict parent-to-child data flow:
     - Distributes state and setter functions to children via props.
     - Sets the global `dir="rtl"` and applies theme-level CSS classes.
 
-2.  **`PasswordInput.jsx` (The Driver)**:
-    - Renders a large, stylized input field.
+2.  **PasswordInput.jsx** (The Driver):
+    - Renders a large, stylized input field with a **Show/Hide Toggle**.
+    - Handles `onChange` events to capture both typing and **pasting/deletion**.
     - Captures keystrokes and updates the `password` state.
     - Displays visual state (e.g., border color) based on the `strength` prop.
+    - **Accessibility**: Uses `aria-describedby` to link the input to the feedback messages.
 
-3.  **`CoachFeedback.jsx` (The Teacher)**:
+3.  **CoachFeedback.jsx** (The Teacher):
+    - **Accessibility**: Wraps content in `aria-live="polite"` to ensure screen readers announce updates to non-technical users.
     - Receives the `feedback` array.
     - Maps through messages to display real-time tips in Hebrew.
     - Uses state-based coloring (e.g., Yellow for warnings, Green for success).
