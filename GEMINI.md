@@ -6,8 +6,10 @@
 - RTL (Right-to-Left) layout support for Hebrew is a core requirement.
 
 ## Tech Stack
-- **React** (Javascript).
-- **Vanilla CSS** (for layout and custom visual language).
+- **Next.js** (App Router).
+- **React** (Vanilla Javascript).
+- **Redux Toolkit** (for global state management).
+- **Vanilla CSS** (CSS Modules for styling).
 
 ## UI/UX Principles
 - **RTL First**: All UI components must be designed for RTL (`dir="rtl"`).

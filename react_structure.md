@@ -1,65 +1,52 @@
-# React Architecture: Password Coach
+# React & Redux Architecture: Password Coach
 
-This document details the technical structure and data flow of the Password Coach React application.
+This document details the technical structure using **Next.js (App Router)** and **Redux Toolkit**.
 
-## Architecture Overview: The Single-Page Coach
-We use a **Surgical Single-Page Architecture**. The interface is a focused, high-immediacy workspace where all components react in real-time to user input without page transitions.
+## Architecture Overview: The Next.js App Router
+We use the **App Router** pattern (`/app` directory). The application is split into Server Components for static layout and Client Components for the interactive "Coach" experience.
 
-## State Management: The "Brain" Hook
-State is centralized using a custom hook to ensure a single source of truth and decoupled logic.
+## State Management: Redux Toolkit (The Global Brain)
+Instead of a local hook, we use a centralized Redux store to manage the password lifecycle. This allows the keyboard, input, and feedback components to stay perfectly synced without prop drilling.
 
-### `usePasswordCoach` (Custom Hook)
-- **Location**: `src/hooks/usePasswordCoach.js`
-- **Responsibilities**:
-  - Manages the `password` string state.
-  - Calculates `strength` (0-4) based on security rules.
-  - Generates an array of `feedback` messages in Hebrew.
-  - Tracks `activeKeys` for the visualizer.
-- **Why?**: This allows the logic to be tested independently of the UI and keeps components "pure."
+### Store Slice: `passwordSlice.js`
+- **Location**: `src/lib/features/password/passwordSlice.js`
+- **State**:
+  - `value`: The current password string.
+  - `strength`: Calculated value (0-4).
+  - `feedback`: Array of Hebrew message strings.
+  - `activeKeys`: Map of keys to highlight (Neutral, Invite, Confirmation, Avoid).
+- **Reducers**:
+  - `setPassword`: Updates value and triggers re-calculation of strength/feedback.
+  - `resetStore`: Clears all state.
 
-## Component Hierarchy
-The application follows a strict parent-to-child data flow:
+## Component Hierarchy (Next.js)
 
-1.  **`App.js` (The Orchestrator)**:
-    - Calls `usePasswordCoach()`.
-    - Distributes state and setter functions to children via props.
-    - Sets the global `dir="rtl"` and applies theme-level CSS classes.
+1.  **`app/layout.js` (The Root)**:
+    - Wraps the entire app in a **Redux Store Provider**.
+    - Sets global `dir="rtl"` and handles the "Ploni-dl" font via `next/font`.
 
-2.  **PasswordInput.jsx** (The Driver):
-    - Renders a large, stylized input field with a **Show/Hide Toggle**.
-    - Handles `onChange` events to capture both typing and **pasting/deletion**.
-    - Captures keystrokes and updates the `password` state.
-    - Displays visual state (e.g., border color) based on the `strength` prop.
-    - **Accessibility**: Uses `aria-describedby` to link the input to the feedback messages.
+2.  **`app/page.js` (The Orchestrator)**:
+    - A Server Component that serves as the main entry point.
+    - Imports the interactive Client Components.
 
-3.  **CoachFeedback.jsx** (The Teacher):
-    - **Accessibility**: Wraps content in `aria-live="polite"` to ensure screen readers announce updates to non-technical users.
-    - Receives the `feedback` array.
-    - Maps through messages to display real-time tips in Hebrew.
-    - Uses state-based coloring (e.g., Yellow for warnings, Green for success).
+3.  **`src/components/PasswordInput.jsx`** (`'use client'`):
+    - Connects to Redux via `useSelector` and `useDispatch`.
+    - Dispatches `setPassword` on every `onChange` (handling typing, paste, and delete).
+    - Includes the **Show/Hide Toggle**.
 
-4.  **`KeyboardVisualizer.jsx` (The Tactile Layer)**:
-    - A visual representation of a keyboard.
-    - Highlights keys dynamically based on the current `password` or active keystrokes.
+4.  **`src/components/CoachFeedback.jsx`** (`'use client'`):
+    - Subscribes to the `feedback` and `strength` states from Redux.
+    - Uses `aria-live="polite"` for accessibility.
 
-## Data Flow (Unidirectional)
-1.  **User Action**: User types "a" in `PasswordInput`.
-2.  **State Update**: `setPassword("a")` is called.
-3.  **Re-render**: React detects state change.
-4.  **Logic Execution**: `usePasswordCoach` recalculates strength and messages.
-5.  **UI Sync**: `App` passes new props; `CoachFeedback` shows "Password too short", `PasswordInput` turns red.
+5.  **`src/components/KeyboardVisualizer.jsx`** (`'use client'`):
+    - Subscribes to `activeKeys` and `lastTypedChar`.
+    - Renders the "Magnetic Glow" grid.
+
+## Data Flow (Redux + Next.js)
+1.  **Action**: User types in `PasswordInput`.
+2.  **Dispatch**: `dispatch(setPassword("newVal"))` is called.
+3.  **Reducer**: Redux updates the store and runs the validation logic (defined in `PASSWORD_RULES.md`).
+4.  **Subscribe**: All three components (`Input`, `Feedback`, `Keyboard`) receive the new state and re-render instantly.
 
 ## Design System Integration
-Components consume the CSS variables defined in `DESIGN_SYSTEM.md`. We map React state to CSS data-attributes:
-
-```jsx
-// Example of state-to-style mapping
-<div className="coach-app" data-strength={strength}>
-  {/* The CSS uses [data-strength="3"] to set --accent-color */}
-</div>
-```
-
-## RTL Strategy
-- Root element has `dir="rtl"`.
-- Typography uses the "Ploni-dl" font preset.
-- Layout uses Flexbox and Grid with logical properties to ensure correct Hebrew alignment.
+We use **CSS Modules** (`Component.module.css`) to ensure styles are scoped.
