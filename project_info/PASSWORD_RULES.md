@@ -24,6 +24,11 @@ This document defines the validation rules for the Password Coach and the corres
 - **Coach Message**: "כדאי להימנע מרצפים פשוטים של מספרים כמו 123 - זה הופך את הסיסמה לקלה לניחוש."
 - **Severity**: Warning (Color: #ff8a8a)
 
+### 5. No Hebrew Characters
+- **Requirement**: Password must be written in English characters only.
+- **Coach Message**: "הסיסמה צריכה להיכתב באותיות באנגלית בלבד. (נא לוודא שהמקלדת באנגלית)"
+- **Severity**: Critical (Color: #ff8a8a)
+
 ---
 
 ## Unit Testing Plan (Vitest/Jest)

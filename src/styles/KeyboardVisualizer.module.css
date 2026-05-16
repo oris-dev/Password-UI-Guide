@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   gap: var(--wp--preset--spacing--20);
-  background-color: #eee;
-  padding: var(--wp--preset--spacing--40);
-  border-radius: 12px;
+  background-color: var(--maccabi-bg-light);
+  padding: var(--wp--preset--spacing--50);
+  border-radius: var(--border-radius-m);
   user-select: none;
-  direction: ltr; /* Override global RTL for standard keyboard flow */
+  direction: ltr;
+  border: 2px solid var(--maccabi-bg-soft);
 }
 
 .row {
@@ -16,39 +17,42 @@
 }
 
 .key {
-  width: 50px;
-  height: 50px;
+  width: 54px;
+  height: 54px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--wp--preset--color--white);
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  background-color: var(--maccabi-white);
+  border: 2px solid var(--maccabi-bg-soft);
+  border-radius: var(--border-radius-s);
   font-family: inherit;
   font-size: var(--wp--preset--font-size--normal);
+  font-weight: bold;
+  color: var(--maccabi-dark-blue);
   transition: all 0.3s ease;
-  box-shadow: var(--wp--preset--shadow--sharp);
+  box-shadow: 0 2px 4px rgba(0, 33, 144, 0.05);
 }
 
 .invite {
-  box-shadow: 0 0 15px var(--wp--preset--color--luminous-vivid-amber);
-  border-color: var(--wp--preset--color--luminous-vivid-amber);
+  border-color: var(--maccabi-light-blue);
+  box-shadow: 0 0 15px rgba(0, 185, 255, 0.4);
   animation: pulseInvite 2s infinite;
 }
 
 .confirmation {
-  background-color: var(--wp--preset--color--vivid-green-cyan);
-  color: white;
+  background-color: var(--maccabi-vibrant-blue);
+  color: var(--maccabi-white);
   border-color: transparent;
+  box-shadow: 0 4px 8px rgba(0, 110, 245, 0.3);
 }
 
 .avoid {
-  box-shadow: 0 0 15px var(--wp--preset--color--vivid-red);
-  border-color: var(--wp--preset--color--vivid-red);
+  border-color: var(--strength-1);
+  box-shadow: 0 0 15px rgba(207, 46, 46, 0.4);
 }
 
 @keyframes pulseInvite {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  0% { transform: scale(1); border-color: var(--maccabi-light-blue); }
+  50% { transform: scale(1.05); border-color: var(--maccabi-vibrant-blue); }
+  100% { transform: scale(1); border-color: var(--maccabi-light-blue); }
 }

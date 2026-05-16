@@ -1,23 +1,37 @@
 .container {
-  padding: var(--wp--preset--spacing--30);
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  border-right: 6px solid var(--strength-color, var(--wp--preset--color--cyan-bluish-gray));
-  min-height: 100px;
-  transition: border-color 0.4s ease;
+  padding: var(--wp--preset--spacing--40);
+  border-radius: var(--border-radius-m);
+  background-color: var(--maccabi-bg-light);
+  border: 2px solid var(--strength-color, var(--maccabi-bg-soft));
+  min-height: 120px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.strength_0 { --strength-color: var(--wp--preset--color--cyan-bluish-gray); }
-.strength_1 { --strength-color: var(--wp--preset--color--vivid-red); }
-.strength_2 { --strength-color: var(--wp--preset--color--luminous-vivid-orange); }
-.strength_3 { --strength-color: var(--wp--preset--color--luminous-vivid-amber); }
-.strength_4 { --strength-color: var(--wp--preset--color--vivid-green-cyan); }
+/* Colored areas principle: Use a subtle background fill based on strength */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 100%;
+  background-color: var(--strength-color);
+  transition: background-color 0.4s ease;
+}
+
+.strength_0 { --strength-color: var(--strength-0); }
+.strength_1 { --strength-color: var(--strength-1); }
+.strength_2 { --strength-color: var(--strength-2); }
+.strength_3 { --strength-color: var(--strength-3); }
+.strength_4 { --strength-color: var(--strength-4); }
 
 .strengthTitle {
   font-size: var(--wp--preset--font-size--medium);
-  margin-bottom: var(--wp--preset--spacing--20);
-  color: var(--strength-color);
-  transition: color 0.4s ease;
+  margin-bottom: var(--wp--preset--spacing--30);
+  font-weight: bold;
+  color: var(--maccabi-dark-blue);
 }
 
 .messageList {
@@ -31,5 +45,7 @@
 
 .messageItem {
   font-size: var(--wp--preset--font-size--normal);
-  color: #555;
+  color: var(--maccabi-dark-blue);
+  line-height: 1.4;
+  padding-right: var(--wp--preset--spacing--20);
 }

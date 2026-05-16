@@ -13,6 +13,7 @@ const MESSAGES = {
   CASE: 'שילוב של אותיות גדולות וקטנות מחזק את הסיסמה.',
   SYMBOL: 'הוספת סימן מיוחד (כמו @, #, או !) מוסיפה המון הגנה.',
   SEQUENCE: 'כדאי להימנע מרצפים פשוטים של מספרים כמו 123 - זה הופך את הסיסמה לקלה לניחוש.',
+  HEBREW: 'הסיסמה צריכה להיכתב באותיות באנגלית בלבד. (נא לוודא שהמקלדת באנגלית)',
 };
 
 const SYMBOLS = '!@#$%^&*()_+=-[]{}|;:\'",.<>?/'.split('');
@@ -26,7 +27,16 @@ const validatePassword = (password) => {
     return { strength: 0, feedback: [], activeKeys: {} };
   }
 
-  // 1. Length Check
+  // 1. Hebrew Character Check (Critical Blocker)
+  const hasHebrew = /[\u0590-\u05FF]/.test(password);
+  if (hasHebrew) {
+    feedback.push(MESSAGES.HEBREW);
+    // If Hebrew is present, we cap the strength and don't check other rules as thoroughly
+    // to focus the user on fixing the language first.
+    return { strength: 0, feedback, activeKeys: {} };
+  }
+
+  // 2. Length Check
   if (password.length >= 10) {
     strength += 1;
   } else {

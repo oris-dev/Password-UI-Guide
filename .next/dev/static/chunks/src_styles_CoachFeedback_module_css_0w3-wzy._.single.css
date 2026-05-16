@@ -1,38 +1,51 @@
 /* [project]/src/styles/CoachFeedback.module.css [app-client] (css) */
 .CoachFeedback-module__Mol6JW__container {
-  padding: var(--wp--preset--spacing--30);
-  border-right: 6px solid var(--strength-color, var(--wp--preset--color--cyan-bluish-gray));
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  min-height: 100px;
-  transition: border-color .4s;
+  padding: var(--wp--preset--spacing--40);
+  border-radius: var(--border-radius-m);
+  background-color: var(--maccabi-bg-light);
+  border: 2px solid var(--strength-color, var(--maccabi-bg-soft));
+  min-height: 120px;
+  transition: all .4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.CoachFeedback-module__Mol6JW__container:before {
+  content: "";
+  background-color: var(--strength-color);
+  width: 8px;
+  height: 100%;
+  transition: background-color .4s;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .CoachFeedback-module__Mol6JW__strength_0 {
-  --strength-color: var(--wp--preset--color--cyan-bluish-gray);
+  --strength-color: var(--strength-0);
 }
 
 .CoachFeedback-module__Mol6JW__strength_1 {
-  --strength-color: var(--wp--preset--color--vivid-red);
+  --strength-color: var(--strength-1);
 }
 
 .CoachFeedback-module__Mol6JW__strength_2 {
-  --strength-color: var(--wp--preset--color--luminous-vivid-orange);
+  --strength-color: var(--strength-2);
 }
 
 .CoachFeedback-module__Mol6JW__strength_3 {
-  --strength-color: var(--wp--preset--color--luminous-vivid-amber);
+  --strength-color: var(--strength-3);
 }
 
 .CoachFeedback-module__Mol6JW__strength_4 {
-  --strength-color: var(--wp--preset--color--vivid-green-cyan);
+  --strength-color: var(--strength-4);
 }
 
 .CoachFeedback-module__Mol6JW__strengthTitle {
   font-size: var(--wp--preset--font-size--medium);
-  margin-bottom: var(--wp--preset--spacing--20);
-  color: var(--strength-color);
-  transition: color .4s;
+  margin-bottom: var(--wp--preset--spacing--30);
+  color: var(--maccabi-dark-blue);
+  font-weight: bold;
 }
 
 .CoachFeedback-module__Mol6JW__messageList {
@@ -46,7 +59,9 @@
 
 .CoachFeedback-module__Mol6JW__messageItem {
   font-size: var(--wp--preset--font-size--normal);
-  color: #555;
+  color: var(--maccabi-dark-blue);
+  padding-right: var(--wp--preset--spacing--20);
+  line-height: 1.4;
 }
 
 /*# sourceMappingURL=src_styles_CoachFeedback_module_css_0w3-wzy._.single.css.map*/
