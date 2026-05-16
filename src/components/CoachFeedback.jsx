@@ -3,23 +3,44 @@ import { useSelector } from 'react-redux';
 import styles from '../styles/CoachFeedback.module.css';
 
 export default function CoachFeedback() {
-  const { strength, feedback } = useSelector((state) => state.password);
+  const { value, strength, feedback } = useSelector((state) => state.password);
+
+  const strengthClass = styles[`strength_${strength}`];
+  const strengthText = [
+    'חלשה מאוד',
+    'חלשה',
+    'בינונית',
+    'טובה',
+    'חזקה מאוד'
+  ][strength];
+
+  const renderFeedbackContent = () => {
+    if (value.length === 0) {
+      return <li className={styles.messageItem}>התחל להקליד כדי לקבל משוב...</li>;
+    }
+
+    if (feedback.length > 0) {
+      return feedback.map((msg, index) => (
+        <li key={index} className={styles.messageItem}>
+          {msg}
+        </li>
+      ));
+    }
+
+    if (strength === 4) {
+      return <li className={styles.messageItem} style={{ color: 'var(--wp--preset--color--vivid-green-cyan)', fontWeight: 'bold' }}>כל הכבוד! הסיסמה שלך חזקה ובטוחה.</li>;
+    }
+
+    return null;
+  };
 
   return (
-    <div className={styles.container} aria-live="polite">
+    <div className={`${styles.container} ${strengthClass}`} aria-live="polite">
       <h3 className={styles.strengthTitle}>
-        חוזק סיסמה: {strength} / 4
+        חוזק סיסמה: {strengthText} ({strength} / 4)
       </h3>
       <ul className={styles.messageList}>
-        {feedback.length > 0 ? (
-          feedback.map((msg, index) => (
-            <li key={index} className={styles.messageItem}>
-              {msg}
-            </li>
-          ))
-        ) : (
-          <li className={styles.messageItem}>התחל להקליד כדי לקבל משוב...</li>
-        )}
+        {renderFeedbackContent()}
       </ul>
     </div>
   );

@@ -65,15 +65,38 @@
 /* [project]/src/styles/CoachFeedback.module.css [app-client] (css) */
 .CoachFeedback-module__Mol6JW__container {
   padding: var(--wp--preset--spacing--30);
-  border-right: 4px solid var(--wp--preset--color--cyan-bluish-gray);
+  border-right: 6px solid var(--strength-color, var(--wp--preset--color--cyan-bluish-gray));
   background-color: #f9f9f9;
   border-radius: 8px;
   min-height: 100px;
+  transition: border-color .4s;
+}
+
+.CoachFeedback-module__Mol6JW__strength_0 {
+  --strength-color: var(--wp--preset--color--cyan-bluish-gray);
+}
+
+.CoachFeedback-module__Mol6JW__strength_1 {
+  --strength-color: var(--wp--preset--color--vivid-red);
+}
+
+.CoachFeedback-module__Mol6JW__strength_2 {
+  --strength-color: var(--wp--preset--color--luminous-vivid-orange);
+}
+
+.CoachFeedback-module__Mol6JW__strength_3 {
+  --strength-color: var(--wp--preset--color--luminous-vivid-amber);
+}
+
+.CoachFeedback-module__Mol6JW__strength_4 {
+  --strength-color: var(--wp--preset--color--vivid-green-cyan);
 }
 
 .CoachFeedback-module__Mol6JW__strengthTitle {
   font-size: var(--wp--preset--font-size--medium);
   margin-bottom: var(--wp--preset--spacing--20);
+  color: var(--strength-color);
+  transition: color .4s;
 }
 
 .CoachFeedback-module__Mol6JW__messageList {

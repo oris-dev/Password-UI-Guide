@@ -105,6 +105,11 @@ __turbopack_context__.v({
   "messageItem": "CoachFeedback-module__Mol6JW__messageItem",
   "messageList": "CoachFeedback-module__Mol6JW__messageList",
   "strengthTitle": "CoachFeedback-module__Mol6JW__strengthTitle",
+  "strength_0": "CoachFeedback-module__Mol6JW__strength_0",
+  "strength_1": "CoachFeedback-module__Mol6JW__strength_1",
+  "strength_2": "CoachFeedback-module__Mol6JW__strength_2",
+  "strength_3": "CoachFeedback-module__Mol6JW__strength_3",
+  "strength_4": "CoachFeedback-module__Mol6JW__strength_4",
 });
 }),
 "[project]/src/components/CoachFeedback.jsx [app-client] (ecmascript)", ((__turbopack_context__) => {
@@ -124,55 +129,88 @@ var _s = __turbopack_context__.k.signature();
 ;
 function CoachFeedback() {
     _s();
-    const { strength, feedback } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"])({
+    const { value, strength, feedback } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"])({
         "CoachFeedback.useSelector": (state)=>state.password
     }["CoachFeedback.useSelector"]);
+    const strengthClass = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$CoachFeedback$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"][`strength_${strength}`];
+    const strengthText = [
+        'חלשה מאוד',
+        'חלשה',
+        'בינונית',
+        'טובה',
+        'חזקה מאוד'
+    ][strength];
+    const renderFeedbackContent = ()=>{
+        if (value.length === 0) {
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$CoachFeedback$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].messageItem,
+                children: "התחל להקליד כדי לקבל משוב..."
+            }, void 0, false, {
+                fileName: "[project]/src/components/CoachFeedback.jsx",
+                lineNumber: 19,
+                columnNumber: 14
+            }, this);
+        }
+        if (feedback.length > 0) {
+            return feedback.map((msg, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                    className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$CoachFeedback$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].messageItem,
+                    children: msg
+                }, index, false, {
+                    fileName: "[project]/src/components/CoachFeedback.jsx",
+                    lineNumber: 24,
+                    columnNumber: 9
+                }, this));
+        }
+        if (strength === 4) {
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$CoachFeedback$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].messageItem,
+                style: {
+                    color: 'var(--wp--preset--color--vivid-green-cyan)',
+                    fontWeight: 'bold'
+                },
+                children: "כל הכבוד! הסיסמה שלך חזקה ובטוחה."
+            }, void 0, false, {
+                fileName: "[project]/src/components/CoachFeedback.jsx",
+                lineNumber: 31,
+                columnNumber: 14
+            }, this);
+        }
+        return null;
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$CoachFeedback$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].container,
+        className: `${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$CoachFeedback$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].container} ${strengthClass}`,
         "aria-live": "polite",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$CoachFeedback$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].strengthTitle,
                 children: [
                     "חוזק סיסמה: ",
+                    strengthText,
+                    " (",
                     strength,
-                    " / 4"
+                    " / 4)"
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/CoachFeedback.jsx",
-                lineNumber: 10,
+                lineNumber: 39,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$CoachFeedback$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].messageList,
-                children: feedback.length > 0 ? feedback.map((msg, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                        className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$CoachFeedback$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].messageItem,
-                        children: msg
-                    }, index, false, {
-                        fileName: "[project]/src/components/CoachFeedback.jsx",
-                        lineNumber: 16,
-                        columnNumber: 13
-                    }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                    className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$CoachFeedback$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].messageItem,
-                    children: "התחל להקליד כדי לקבל משוב..."
-                }, void 0, false, {
-                    fileName: "[project]/src/components/CoachFeedback.jsx",
-                    lineNumber: 21,
-                    columnNumber: 11
-                }, this)
+                children: renderFeedbackContent()
             }, void 0, false, {
                 fileName: "[project]/src/components/CoachFeedback.jsx",
-                lineNumber: 13,
+                lineNumber: 42,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/CoachFeedback.jsx",
-        lineNumber: 9,
+        lineNumber: 38,
         columnNumber: 5
     }, this);
 }
-_s(CoachFeedback, "5R7kip1aNbdEnxplziEUB0Opqv0=", false, function() {
+_s(CoachFeedback, "CADk8/4hki4fXWcBFLHoRk1vONc=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"]
     ];

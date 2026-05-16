@@ -2,13 +2,22 @@
   padding: var(--wp--preset--spacing--30);
   border-radius: 8px;
   background-color: #f9f9f9;
-  border-right: 4px solid var(--wp--preset--color--cyan-bluish-gray);
+  border-right: 6px solid var(--strength-color, var(--wp--preset--color--cyan-bluish-gray));
   min-height: 100px;
+  transition: border-color 0.4s ease;
 }
+
+.strength_0 { --strength-color: var(--wp--preset--color--cyan-bluish-gray); }
+.strength_1 { --strength-color: var(--wp--preset--color--vivid-red); }
+.strength_2 { --strength-color: var(--wp--preset--color--luminous-vivid-orange); }
+.strength_3 { --strength-color: var(--wp--preset--color--luminous-vivid-amber); }
+.strength_4 { --strength-color: var(--wp--preset--color--vivid-green-cyan); }
 
 .strengthTitle {
   font-size: var(--wp--preset--font-size--medium);
   margin-bottom: var(--wp--preset--spacing--20);
+  color: var(--strength-color);
+  transition: color 0.4s ease;
 }
 
 .messageList {
