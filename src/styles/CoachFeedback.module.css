@@ -1,0 +1,26 @@
+.container {
+  padding: var(--wp--preset--spacing--30);
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border-right: 4px solid var(--wp--preset--color--cyan-bluish-gray);
+  min-height: 100px;
+}
+
+.strengthTitle {
+  font-size: var(--wp--preset--font-size--medium);
+  margin-bottom: var(--wp--preset--spacing--20);
+}
+
+.messageList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--wp--preset--spacing--20);
+}
+
+.messageItem {
+  font-size: var(--wp--preset--font-size--normal);
+  color: #555;
+}

@@ -1,0 +1,29 @@
+/* [project]/src/styles/CoachFeedback.module.css [app-client] (css) */
+.CoachFeedback-module__Mol6JW__container {
+  padding: var(--wp--preset--spacing--30);
+  border-right: 4px solid var(--wp--preset--color--cyan-bluish-gray);
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  min-height: 100px;
+}
+
+.CoachFeedback-module__Mol6JW__strengthTitle {
+  font-size: var(--wp--preset--font-size--medium);
+  margin-bottom: var(--wp--preset--spacing--20);
+}
+
+.CoachFeedback-module__Mol6JW__messageList {
+  gap: var(--wp--preset--spacing--20);
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.CoachFeedback-module__Mol6JW__messageItem {
+  font-size: var(--wp--preset--font-size--normal);
+  color: #555;
+}
+
+/*# sourceMappingURL=src_styles_CoachFeedback_module_css_0w3-wzy._.single.css.map*/

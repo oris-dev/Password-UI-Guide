@@ -1,0 +1,20 @@
+/* [project]/src/styles/Home.module.css [app-client] (css) */
+.Home-module__Ho9lYW__main {
+  padding: var(--wp--preset--spacing--50);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.Home-module__Ho9lYW__title {
+  font-size: var(--wp--preset--font-size--huge);
+  margin-bottom: var(--wp--preset--spacing--50);
+  font-weight: 200;
+}
+
+.Home-module__Ho9lYW__container {
+  gap: var(--wp--preset--spacing--40);
+  flex-direction: column;
+  display: flex;
+}
+
+/*# sourceMappingURL=src_styles_Home_module_css_0w3-wzy._.single.css.map*/

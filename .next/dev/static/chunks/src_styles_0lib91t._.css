@@ -1,0 +1,157 @@
+/* [project]/src/styles/Home.module.css [app-client] (css) */
+.Home-module__Ho9lYW__main {
+  padding: var(--wp--preset--spacing--50);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.Home-module__Ho9lYW__title {
+  font-size: var(--wp--preset--font-size--huge);
+  margin-bottom: var(--wp--preset--spacing--50);
+  font-weight: 200;
+}
+
+.Home-module__Ho9lYW__container {
+  gap: var(--wp--preset--spacing--40);
+  flex-direction: column;
+  display: flex;
+}
+
+/* [project]/src/styles/PasswordInput.module.css [app-client] (css) */
+.PasswordInput-module__9j4itG__wrapper {
+  gap: var(--wp--preset--spacing--20);
+  flex-direction: column;
+  display: flex;
+}
+
+.PasswordInput-module__9j4itG__label {
+  font-size: var(--wp--preset--font-size--medium);
+}
+
+.PasswordInput-module__9j4itG__inputGroup {
+  gap: var(--wp--preset--spacing--20);
+  display: flex;
+}
+
+.PasswordInput-module__9j4itG__input {
+  padding: var(--wp--preset--spacing--30);
+  font-size: var(--wp--preset--font-size--normal);
+  border: 1px solid var(--wp--preset--color--cyan-bluish-gray);
+  border-radius: 4px;
+  flex: 1;
+  font-family: inherit;
+  transition: border-color .3s;
+}
+
+.PasswordInput-module__9j4itG__input:focus {
+  border-color: var(--wp--preset--color--vivid-cyan-blue);
+  outline: none;
+}
+
+.PasswordInput-module__9j4itG__toggleButton {
+  padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);
+  cursor: pointer;
+  background-color: var(--wp--preset--color--white);
+  border: 1px solid var(--wp--preset--color--cyan-bluish-gray);
+  border-radius: 4px;
+  font-family: inherit;
+  transition: background-color .2s;
+}
+
+.PasswordInput-module__9j4itG__toggleButton:hover {
+  background-color: #f0f0f0;
+}
+
+/* [project]/src/styles/CoachFeedback.module.css [app-client] (css) */
+.CoachFeedback-module__Mol6JW__container {
+  padding: var(--wp--preset--spacing--30);
+  border-right: 4px solid var(--wp--preset--color--cyan-bluish-gray);
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  min-height: 100px;
+}
+
+.CoachFeedback-module__Mol6JW__strengthTitle {
+  font-size: var(--wp--preset--font-size--medium);
+  margin-bottom: var(--wp--preset--spacing--20);
+}
+
+.CoachFeedback-module__Mol6JW__messageList {
+  gap: var(--wp--preset--spacing--20);
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.CoachFeedback-module__Mol6JW__messageItem {
+  font-size: var(--wp--preset--font-size--normal);
+  color: #555;
+}
+
+/* [project]/src/styles/KeyboardVisualizer.module.css [app-client] (css) */
+.KeyboardVisualizer-module__RkY4Kq__keyboard {
+  gap: var(--wp--preset--spacing--20);
+  padding: var(--wp--preset--spacing--40);
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: #eee;
+  border-radius: 12px;
+  flex-direction: column;
+  display: flex;
+}
+
+.KeyboardVisualizer-module__RkY4Kq__row {
+  justify-content: center;
+  gap: var(--wp--preset--spacing--20);
+  display: flex;
+}
+
+.KeyboardVisualizer-module__RkY4Kq__key {
+  background-color: var(--wp--preset--color--white);
+  width: 50px;
+  height: 50px;
+  font-family: inherit;
+  font-size: var(--wp--preset--font-size--normal);
+  box-shadow: var(--wp--preset--shadow--sharp);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  transition: all .3s;
+  display: flex;
+}
+
+.KeyboardVisualizer-module__RkY4Kq__invite {
+  box-shadow: 0 0 15px var(--wp--preset--color--luminous-vivid-amber);
+  border-color: var(--wp--preset--color--luminous-vivid-amber);
+  animation: 2s infinite KeyboardVisualizer-module__RkY4Kq__pulseInvite;
+}
+
+.KeyboardVisualizer-module__RkY4Kq__confirmation {
+  background-color: var(--wp--preset--color--vivid-green-cyan);
+  color: #fff;
+  border-color: #0000;
+}
+
+.KeyboardVisualizer-module__RkY4Kq__avoid {
+  box-shadow: 0 0 15px var(--wp--preset--color--vivid-red);
+  border-color: var(--wp--preset--color--vivid-red);
+}
+
+@keyframes KeyboardVisualizer-module__RkY4Kq__pulseInvite {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/*# sourceMappingURL=src_styles_0lib91t._.css.map*/

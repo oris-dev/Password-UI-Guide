@@ -1,0 +1,17 @@
+.main {
+  padding: var(--wp--preset--spacing--50);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: var(--wp--preset--font-size--huge);
+  margin-bottom: var(--wp--preset--spacing--50);
+  font-weight: 200;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wp--preset--spacing--40);
+}

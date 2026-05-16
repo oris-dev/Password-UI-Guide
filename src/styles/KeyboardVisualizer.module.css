@@ -1,0 +1,53 @@
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wp--preset--spacing--20);
+  background-color: #eee;
+  padding: var(--wp--preset--spacing--40);
+  border-radius: 12px;
+  user-select: none;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: var(--wp--preset--spacing--20);
+}
+
+.key {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--wp--preset--color--white);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: var(--wp--preset--font-size--normal);
+  transition: all 0.3s ease;
+  box-shadow: var(--wp--preset--shadow--sharp);
+}
+
+.invite {
+  box-shadow: 0 0 15px var(--wp--preset--color--luminous-vivid-amber);
+  border-color: var(--wp--preset--color--luminous-vivid-amber);
+  animation: pulseInvite 2s infinite;
+}
+
+.confirmation {
+  background-color: var(--wp--preset--color--vivid-green-cyan);
+  color: white;
+  border-color: transparent;
+}
+
+.avoid {
+  box-shadow: 0 0 15px var(--wp--preset--color--vivid-red);
+  border-color: var(--wp--preset--color--vivid-red);
+}
+
+@keyframes pulseInvite {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}

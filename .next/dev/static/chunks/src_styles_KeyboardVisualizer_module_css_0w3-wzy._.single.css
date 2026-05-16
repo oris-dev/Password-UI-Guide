@@ -1,0 +1,65 @@
+/* [project]/src/styles/KeyboardVisualizer.module.css [app-client] (css) */
+.KeyboardVisualizer-module__RkY4Kq__keyboard {
+  gap: var(--wp--preset--spacing--20);
+  padding: var(--wp--preset--spacing--40);
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: #eee;
+  border-radius: 12px;
+  flex-direction: column;
+  display: flex;
+}
+
+.KeyboardVisualizer-module__RkY4Kq__row {
+  justify-content: center;
+  gap: var(--wp--preset--spacing--20);
+  display: flex;
+}
+
+.KeyboardVisualizer-module__RkY4Kq__key {
+  background-color: var(--wp--preset--color--white);
+  width: 50px;
+  height: 50px;
+  font-family: inherit;
+  font-size: var(--wp--preset--font-size--normal);
+  box-shadow: var(--wp--preset--shadow--sharp);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  transition: all .3s;
+  display: flex;
+}
+
+.KeyboardVisualizer-module__RkY4Kq__invite {
+  box-shadow: 0 0 15px var(--wp--preset--color--luminous-vivid-amber);
+  border-color: var(--wp--preset--color--luminous-vivid-amber);
+  animation: 2s infinite KeyboardVisualizer-module__RkY4Kq__pulseInvite;
+}
+
+.KeyboardVisualizer-module__RkY4Kq__confirmation {
+  background-color: var(--wp--preset--color--vivid-green-cyan);
+  color: #fff;
+  border-color: #0000;
+}
+
+.KeyboardVisualizer-module__RkY4Kq__avoid {
+  box-shadow: 0 0 15px var(--wp--preset--color--vivid-red);
+  border-color: var(--wp--preset--color--vivid-red);
+}
+
+@keyframes KeyboardVisualizer-module__RkY4Kq__pulseInvite {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/*# sourceMappingURL=src_styles_KeyboardVisualizer_module_css_0w3-wzy._.single.css.map*/
