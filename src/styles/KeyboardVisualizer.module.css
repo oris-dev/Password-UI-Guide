@@ -6,6 +6,7 @@
   padding: var(--wp--preset--spacing--40);
   border-radius: 12px;
   user-select: none;
+  direction: ltr; /* Override global RTL for standard keyboard flow */
 }
 
 .row {

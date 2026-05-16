@@ -219,6 +219,20 @@ function KeyboardVisualizer() {
     // Simplified layout for demonstration
     const rows = [
         [
+            '!',
+            '@',
+            '#',
+            '$',
+            '%',
+            '^',
+            '&',
+            '*',
+            '(',
+            ')',
+            '_',
+            '+'
+        ],
+        [
             '1',
             '2',
             '3',
@@ -228,7 +242,9 @@ function KeyboardVisualizer() {
             '7',
             '8',
             '9',
-            '0'
+            '0',
+            '-',
+            '='
         ],
         [
             'Q',
@@ -240,7 +256,9 @@ function KeyboardVisualizer() {
             'U',
             'I',
             'O',
-            'P'
+            'P',
+            '[',
+            ']'
         ],
         [
             'A',
@@ -251,7 +269,9 @@ function KeyboardVisualizer() {
             'H',
             'J',
             'K',
-            'L'
+            'L',
+            ';',
+            "'"
         ],
         [
             'Z',
@@ -261,9 +281,9 @@ function KeyboardVisualizer() {
             'B',
             'N',
             'M',
-            '@',
-            '!',
-            '#'
+            ',',
+            '.',
+            '/'
         ]
     ];
     const getKeyStyle = (key)=>{
@@ -282,17 +302,17 @@ function KeyboardVisualizer() {
                         children: key
                     }, key, false, {
                         fileName: "[project]/src/components/KeyboardVisualizer.jsx",
-                        lineNumber: 29,
+                        lineNumber: 30,
                         columnNumber: 13
                     }, this))
             }, rowIndex, false, {
                 fileName: "[project]/src/components/KeyboardVisualizer.jsx",
-                lineNumber: 27,
+                lineNumber: 28,
                 columnNumber: 9
             }, this))
     }, void 0, false, {
         fileName: "[project]/src/components/KeyboardVisualizer.jsx",
-        lineNumber: 25,
+        lineNumber: 26,
         columnNumber: 5
     }, this);
 }

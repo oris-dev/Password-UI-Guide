@@ -96,6 +96,7 @@
   padding: var(--wp--preset--spacing--40);
   -webkit-user-select: none;
   user-select: none;
+  direction: ltr;
   background-color: #eee;
   border-radius: 12px;
   flex-direction: column;
