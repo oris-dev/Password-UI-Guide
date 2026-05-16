@@ -1,7 +1,7 @@
 .container {
   padding: var(--wp--preset--spacing--40);
   border-radius: var(--border-radius-m);
-  background-color: var(--maccabi-bg-light);
+  background-color: var(--strength-bg, var(--maccabi-bg-light));
   border: 2px solid var(--strength-color, var(--maccabi-bg-soft));
   min-height: 120px;
   transition: all 0.4s ease;
@@ -21,11 +21,11 @@
   transition: background-color 0.4s ease;
 }
 
-.strength_0 { --strength-color: var(--strength-0); }
-.strength_1 { --strength-color: var(--strength-1); }
-.strength_2 { --strength-color: var(--strength-2); }
-.strength_3 { --strength-color: var(--strength-3); }
-.strength_4 { --strength-color: var(--strength-4); }
+.strength_0 { --strength-color: var(--strength-0); --strength-bg: var(--maccabi-bg-light); }
+.strength_1 { --strength-color: var(--strength-1); --strength-bg: #fff5f5; }
+.strength_2 { --strength-color: var(--strength-2); --strength-bg: #fff9f2; }
+.strength_3 { --strength-color: var(--strength-3); --strength-bg: var(--maccabi-purple-light); }
+.strength_4 { --strength-color: var(--strength-4); --strength-bg: #f2fff9; }
 
 .strengthTitle {
   font-size: var(--wp--preset--font-size--medium);

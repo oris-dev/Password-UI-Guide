@@ -2,6 +2,38 @@
   padding: var(--wp--preset--spacing--60);
   max-width: 900px;
   margin: 0 auto;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden; /* Contain the vector shapes */
+}
+
+/* Abstract Purple Vector Area - Top Right */
+.main::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--maccabi-purple-light) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* Abstract Purple Vector Area - Bottom Left */
+.main::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  right: -150px;
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(135deg, var(--maccabi-purple-light) 0%, transparent 80%);
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  z-index: -1;
+  opacity: 0.5;
+  transform: rotate(-15deg);
 }
 
 .title {
@@ -10,6 +42,18 @@
   font-weight: bold;
   color: var(--maccabi-dark-blue);
   text-align: center;
+  position: relative;
+}
+
+/* Subtle underline for the title to mimic the Maccabi branding */
+.title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--maccabi-light-blue);
+  margin: 10px auto 0;
+  border-radius: 2px;
 }
 
 .container {
