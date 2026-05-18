@@ -1,21 +1,20 @@
 
-## The "Keystroke Journey" (How it works in practice)
+ ## The "Keystroke Journey" (How it works in practice)
 
-1.  **Initial Launch**: When the website loads, the **Coach Feedback** panel displays a complete list of all the required password rules. This gives the user a clear "roadmap" of what is needed (e.g., 10+ characters, special symbols, mixed case).
-2.  **The Action**: The user starts typing in the **PasswordInput**.
-3.  **The Signal**: Every keystroke sends a signal (an Action) to the Redux store with the updated password string.
-4.  **The Calculation & Elimination**: The Redux logic continuously checks the password against the "Rule Book."
-    *   As soon as a rule is satisfied (e.g., the user adds a symbol), that rule is **immediately removed** from the visual list.
-    *   The UI updates the password strength and colors in real-time.
-5.  **The Final Destination**: The user's journey is complete when the rule list is **empty**. This "zero-state" confirms that the password is fully secure and ready to use.
+   1. The Action: You type the letter "S" into the PasswordInput.
+   2. The Signal: The input doesn't decide what to do. It just sends a signal (an Action) to the Redux Brain:
+      "Hey, the user added an 'S'!"
+   3. The Calculation: Redux looks at its "Rule Book." It sees the password is now 10 characters long and has a
+      symbol. It updates the State to: Strength: 4 (Secure).
+   4. The Update: React sees that the Redux Brain has changed.
+       * The Input sees Strength: 4 and turns Success Green.
+       * The Feedback sees the new state and displays: "סיסמה חזקה מאוד!" (Very strong password!).
+       * The Keyboard sees that the symbol rule is met and stops the "Invite" glow.
 
-## Data Flow Architecture
+  ## Data Flow Architecture
+  The project uses a Unidirectional Data Flow:
 
-The project follows a strict Unidirectional Data Flow to ensure the UI stays in sync:
-
-1.  **Action**: User interacts with the `PasswordInput`.
-2.  **Dispatch**: The input dispatches the new password to the Redux store (`setPassword`).
-3.  **Calculation**: Redux evaluates which rules are still "active" and which have been met. It also calculates the overall strength and determines which keyboard keys should "glow" to guide the user.
-4.  **Reaction**: The `CoachFeedback` and `KeyboardVisualizer` components subscribe to the state.
-    *   **CoachFeedback**: Re-renders to remove satisfied rules from the list.
-    *   **KeyboardVisualizer**: Updates the visual cues on the keys based on the remaining rules.
+   1. Action: User types a letter in PasswordInput.
+   2. Dispatch: The input sends the new string to the Redux Brain (setPassword).
+   3. Calculation: Redux updates the state. It determines if the password is now "Strong" and which keys should "Glow."
+   4. Reaction: The CoachFeedback and KeyboardVisualizer components "listen" to the state change and re-render instantly with the new visuals.

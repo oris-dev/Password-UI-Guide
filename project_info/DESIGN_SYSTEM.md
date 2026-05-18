@@ -42,12 +42,12 @@ This document defines the visual language and design tokens for the Password Coa
 ### Typography
 - **Font Family**: "Ploni-dl" (Weight: 200)
 - **Sizes**:
-  - `small`: 13px
-  - `normal`: 16px
-  - `medium`: 20px
-  - `large`: 36px
-  - `x-large`: 42px
-  - `huge`: 42px
+  - `small`: 0.8125rem (13px)
+  - `normal`: 1rem (16px)
+  - `medium`: 1.25rem (20px)
+  - `large`: 2.25rem (36px)
+  - `x-large`: 2.625rem (42px)
+  - `huge`: 2.625rem (42px)
 
 ### Spacing
 - `20`: 0.44rem
@@ -109,12 +109,12 @@ This document defines the visual language and design tokens for the Password Coa
     --wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
     --wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
     --wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
-    --wp--preset--font-size--small: 13px;
-    --wp--preset--font-size--normal: 16px;
-    --wp--preset--font-size--medium: 20px;
-    --wp--preset--font-size--large: 36px;
-    --wp--preset--font-size--x-large: 42px;
-    --wp--preset--font-size--huge: 42px;
+    --wp--preset--font-size--small: 0.8125rem;
+    --wp--preset--font-size--normal: 1rem;
+    --wp--preset--font-size--medium: 1.25rem;
+    --wp--preset--font-size--large: 2.25rem;
+    --wp--preset--font-size--x-large: 2.625rem;
+    --wp--preset--font-size--huge: 2.625rem;
     --wp--preset--spacing--20: 0.44rem;
     --wp--preset--spacing--30: 0.67rem;
     --wp--preset--spacing--40: 1rem;

@@ -1,12 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  value: '',
-  strength: 0,
-  feedback: [],
-  activeKeys: {}, // Map of keys to highlight
-};
-
 // Hebrew Messages for Rule Elimination
 const MESSAGES = {
   LENGTH: 'הוסיפו עוד כמה תווים (לפחות 10)',
@@ -15,6 +8,18 @@ const MESSAGES = {
   SYMBOL: 'הוסיפו סימן מיוחד (כמו @, #, או !)',
   SEQUENCE: 'הסירו רצפים פשוטים (כמו 123)',
   HEBREW: 'כתבו באותיות באנגלית בלבד',
+};
+
+const initialState = {
+  value: '',
+  strength: 0,
+  feedback: [
+    MESSAGES.LENGTH,
+    MESSAGES.UPPER,
+    MESSAGES.LOWER,
+    MESSAGES.SYMBOL,
+  ],
+  activeKeys: {}, // Map of keys to highlight
 };
 
 const SYMBOLS = '!@#$%^&*()_+=-[]{}|;:\'",.<>?/'.split('');

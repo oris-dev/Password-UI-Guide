@@ -7,7 +7,7 @@
   border-radius: var(--border-radius-m);
   user-select: none;
   direction: ltr;
-  border: 2px solid var(--maccabi-bg-soft);
+  border: var(--border-width-thin) solid var(--maccabi-bg-soft);
 }
 
 .row {
@@ -17,25 +17,25 @@
 }
 
 .key {
-  width: 54px;
-  height: 54px;
+  width: var(--keyboard-key-size);
+  height: var(--keyboard-key-size);
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--maccabi-white);
-  border: 2px solid var(--maccabi-bg-soft);
+  border: var(--border-width-thin) solid var(--maccabi-bg-soft);
   border-radius: var(--border-radius-s);
   font-family: inherit;
   font-size: var(--wp--preset--font-size--normal);
   font-weight: bold;
   color: var(--maccabi-dark-blue);
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 33, 144, 0.05);
+  box-shadow: 0 var(--border-width-thin) var(--border-width-thick) rgba(0, 33, 144, 0.05); /* approx 2px 4px */
 }
 
 .invite {
   border-color: var(--maccabi-light-blue);
-  box-shadow: 0 0 15px rgba(0, 185, 255, 0.4);
+  box-shadow: 0 0 var(--keyboard-shadow-spread) rgba(0, 185, 255, 0.4);
   animation: pulseInvite 2s infinite;
 }
 
@@ -43,12 +43,12 @@
   background-color: var(--maccabi-vibrant-blue);
   color: var(--maccabi-white);
   border-color: transparent;
-  box-shadow: 0 4px 8px rgba(0, 110, 245, 0.3);
+  box-shadow: 0 var(--border-width-thick) 0.5rem rgba(0, 110, 245, 0.3); /* approx 4px 8px */
 }
 
 .avoid {
   border-color: var(--strength-1);
-  box-shadow: 0 0 15px rgba(207, 46, 46, 0.4);
+  box-shadow: 0 0 var(--keyboard-shadow-spread) rgba(207, 46, 46, 0.4);
 }
 
 @keyframes pulseInvite {

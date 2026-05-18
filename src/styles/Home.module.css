@@ -1,6 +1,6 @@
 .main {
   padding: var(--wp--preset--spacing--60);
-  max-width: 900px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
   position: relative;
   min-height: 100vh;
@@ -11,10 +11,10 @@
 .main::before {
   content: '';
   position: absolute;
-  top: -100px;
-  left: -100px;
-  width: 400px;
-  height: 400px;
+  top: var(--shape-tr-offset);
+  left: var(--shape-tr-offset);
+  width: var(--shape-tr-size);
+  height: var(--shape-tr-size);
   background: radial-gradient(circle, var(--maccabi-purple-light) 0%, transparent 70%);
   border-radius: 50%;
   z-index: -1;
@@ -25,10 +25,10 @@
 .main::after {
   content: '';
   position: absolute;
-  bottom: -150px;
-  right: -150px;
-  width: 500px;
-  height: 500px;
+  bottom: var(--shape-bl-offset);
+  right: var(--shape-bl-offset);
+  width: var(--shape-bl-size);
+  height: var(--shape-bl-size);
   background: linear-gradient(135deg, var(--maccabi-purple-light) 0%, transparent 80%);
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
   z-index: -1;
@@ -49,11 +49,11 @@
 .title::after {
   content: '';
   display: block;
-  width: 60px;
-  height: 4px;
+  width: var(--title-underline-width);
+  height: var(--border-width-thick);
   background-color: var(--maccabi-light-blue);
-  margin: 10px auto 0;
-  border-radius: 2px;
+  margin: var(--wp--preset--spacing--30) auto 0; /* approx 10px */
+  border-radius: var(--border-width-thin);
 }
 
 .container {

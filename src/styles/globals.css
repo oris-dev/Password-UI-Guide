@@ -9,12 +9,12 @@
     --maccabi-purple: #AD52FF;
     --maccabi-purple-light: #F6EFFF;
 
-    /* Strength Colors (Aligned with Maccabi's secondary palette or medical feedback colors) */
-    --strength-0: #abb8c3; /* Gray */
-    --strength-1: #cf2e2e; /* Red */
-    --strength-2: #ff6900; /* Orange */
-    --strength-3: #fcb900; /* Amber/Yellow */
-    --strength-4: #00d084; /* Success Green */
+    /* Strength Colors (Red to Green Spectrum) */
+    --strength-0: #cf2e2e; /* Red - Very Weak */
+    --strength-1: #cf2e2e; /* Red - Weak */
+    --strength-2: #ff6900; /* Orange - Medium */
+    --strength-3: #fcb900; /* Amber/Yellow - Good */
+    --strength-4: #00d084; /* Success Green - Very Strong */
 
     /* Design Tokens Mapping */
     --wp--preset--color--black: #000000;
@@ -24,11 +24,11 @@
     /* Typography */
     --font-ploni: "Ploni-dl", sans-serif;
     
-    --wp--preset--font-size--small: 13px;
-    --wp--preset--font-size--normal: 16px;
-    --wp--preset--font-size--medium: 20px;
-    --wp--preset--font-size--large: 36px;
-    --wp--preset--font-size--huge: 42px;
+    --wp--preset--font-size--small: 0.8125rem; /* 13px */
+    --wp--preset--font-size--normal: 1rem;      /* 16px */
+    --wp--preset--font-size--medium: 1.25rem;   /* 20px */
+    --wp--preset--font-size--large: 2.25rem;   /* 36px */
+    --wp--preset--font-size--huge: 2.625rem;  /* 42px */
 
     /* Spacing & Borders */
     --wp--preset--spacing--20: 0.44rem;
@@ -37,10 +37,29 @@
     --wp--preset--spacing--50: 1.5rem;
     --wp--preset--spacing--60: 2.25rem;
     
-    --border-radius-m: 12px;
-    --border-radius-s: 8px;
+    --border-radius-m: 0.75rem; /* 12px */
+    --border-radius-s: 0.5rem;  /* 8px */
+    --border-width-thin: 0.125rem; /* 2px */
+    --border-width-thick: 0.25rem; /* 4px */
     
-    --shadow-soft: 0 4px 12px rgba(0, 33, 144, 0.1);
+    --shadow-soft: 0 0.25rem 0.75rem rgba(0, 33, 144, 0.1);
+    --shadow-focus: 0 0 0 var(--border-width-thick) rgba(0, 185, 255, 0.1);
+
+    /* Layout Constraints */
+    --container-max-width: 56.25rem; /* 900px */
+    --indicator-width: 0.5rem;      /* 8px */
+    --feedback-min-height: 7.5rem;   /* 120px */
+
+    /* Component Specifics */
+    --keyboard-key-size: 3.375rem;   /* 54px */
+    --keyboard-shadow-spread: 0.9375rem; /* 15px */
+    --title-underline-width: 3.75rem; /* 60px */
+
+    /* Decorative Shapes */
+    --shape-tr-offset: -6.25rem;    /* -100px */
+    --shape-tr-size: 25rem;         /* 400px */
+    --shape-bl-offset: -9.375rem;   /* -150px */
+    --shape-bl-size: 31.25rem;      /* 500px */
 }
 
 *, *:before, *:after {

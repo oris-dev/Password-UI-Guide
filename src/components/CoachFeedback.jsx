@@ -24,7 +24,7 @@ export default function CoachFeedback() {
     }
 
     if (value.length > 0 && strength === 4) {
-      return <li className={styles.messageItem} style={{ color: 'var(--wp--preset--color--vivid-green-cyan)', fontWeight: 'bold' }}>כל הכבוד! הסיסמה שלך חזקה ובטוחה.</li>;
+      return <li className={styles.messageItem} style={{ color: 'var(--strength-4)', fontWeight: 'bold' }}>כל הכבוד! הסיסמה שלך חזקה ובטוחה.</li>;
     }
 
     return null;
@@ -33,7 +33,7 @@ export default function CoachFeedback() {
   return (
     <div className={`${styles.container} ${strengthClass}`} aria-live="polite">
       <h3 className={styles.strengthTitle}>
-        חוזק סיסמה: {strengthText} ({strength} / 4)
+        חוזק סיסמה: {strengthText}
       </h3>
       <ul className={styles.messageList}>
         {renderFeedbackContent()}
