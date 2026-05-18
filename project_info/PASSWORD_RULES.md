@@ -1,49 +1,39 @@
 # Password Checker Rules & Coaching Messages
 
-This document defines the validation rules for the Password Coach and the corresponding friendly Hebrew messages used to guide non-technical users.
+This document defines the validation rules for the Password Coach. Instead of traditional error messages, the UI uses a **Rule Elimination** strategy where all requirements are shown upfront and "disappear" as they are satisfied.
 
-## Rule Definitions
+## Active Rule Set
 
 ### 1. Minimum Length
-- **Requirement**: Password must be at least 10 characters long.
-- **Coach Message**: "כדאי להוסיף עוד כמה תווים, זה יהפוך את הסיסמה לבטוחה הרבה יותר (לפחות 10)."
-- **Severity**: Critical (Color: #ff8a8a)
+- **Requirement**: At least 10 characters.
+- **Display Message**: "הוסיפו עוד כמה תווים (לפחות 10)"
 
-### 2. Character Case
-- **Requirement**: Must include at least one uppercase letter and one lowercase letter.
-- **Coach Message**: "שילוב של אותיות גדולות וקטנות מחזק את הסיסמה."
-- **Severity**: Warning (Color: #ffd43b)
+### 2. Uppercase Letter
+- **Requirement**: At least one capital letter (A-Z).
+- **Display Message**: "שלבו אות גדולה (A-Z)"
 
-### 3. Special Characters
-- **Requirement**: Must include at least one symbol from the keyboard.
-- **Coach Message**: "הוספת סימן מיוחד (כמו @, #, או !) מוסיפה המון הגנה."
-- **Severity**: Warning (Color: #ffd43b)
+### 3. Lowercase Letter
+- **Requirement**: At least one small letter (a-z).
+- **Display Message**: "שלבו אות קטנה (a-z)"
 
-### 4. Sequence Blocking
-- **Requirement**: Cannot contain simple number sequences like '123' or '321'.
-- **Coach Message**: "כדאי להימנע מרצפים פשוטים של מספרים כמו 123 - זה הופך את הסיסמה לקלה לניחוש."
-- **Severity**: Warning (Color: #ff8a8a)
+### 4. Special Characters
+- **Requirement**: At least one symbol (e.g., @, #, !).
+- **Display Message**: "הוסיפו סימן מיוחד (כמו @, #, או !)"
 
-### 5. No Hebrew Characters
-- **Requirement**: Password must be written in English characters only.
-- **Coach Message**: "הסיסמה צריכה להיכתב באותיות באנגלית בלבד. (נא לוודא שהמקלדת באנגלית)"
-- **Severity**: Critical (Color: #ff8a8a)
+### 5. Sequence Blocking (Safety Rule)
+- **Requirement**: No simple sequences (e.g., '123', 'abc').
+- **Display Message**: "הסירו רצפים פשוטים (כמו 123)"
+- *Note: This rule only appears if a sequence is detected.*
+
+### 6. English Only (Critical Blocker)
+- **Requirement**: No Hebrew characters allowed.
+- **Display Message**: "כתבו באותיות באנגלית בלבד"
+- *Note: This rule only appears if Hebrew is detected.*
 
 ---
 
-## Unit Testing Plan (Vitest/Jest)
-To ensure the Active Directory logic is foolproof, the following test cases must be implemented in `src/hooks/usePasswordCoach.test.js`:
-
-1. **Length Validation**: Confirm strength is 0 for < 10 chars, and increases at 10+.
-2. **Case Sensitivity**: Verify strength boost only when *both* upper and lower case are present.
-3. **Symbol Recognition**: Test with various special characters (!, @, #, $, %, ^).
-4. **Sequence Blocking**: 
-    - Input '123' -> Ensure sequence rule is triggered.
-    - Input 'abc' -> Ensure sequence rule is triggered.
-5. **Bulk Operations**: Verify that pasting a valid strong password correctly calculates all 4 strength levels in one cycle.
-
-## Visual Language Implementation
-- **Neutral (Gray)**: Default state before typing.
-- **Attention (Soft Red)**: Used when a rule is violated or not yet met.
-- **Progress (Warm Yellow)**: Used when the user is actively meeting requirements.
-- **Secure (Success Green)**: Used when all requirements are fully met.
+## Visual Language: The Journey to "Zero"
+The user's goal is to clear the feedback panel.
+- **Initial State**: All 4 primary rules (Length, Upper, Lower, Symbol) are visible.
+- **Progress**: As rules are met, they are removed from the list.
+- **Success**: An empty list (or a final "Success" message) indicates the password is ready.

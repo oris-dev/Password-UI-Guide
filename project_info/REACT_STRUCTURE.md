@@ -36,6 +36,7 @@ Instead of a local hook, we use a centralized Redux store to manage the password
 
 4.  **`src/components/CoachFeedback.jsx`** (`'use client'`):
     - Subscribes to the `feedback` and `strength` states from Redux.
+    - Displays the "roadmap" of active rules.
     - Uses `aria-live="polite"` for accessibility.
 
 5.  **`src/components/KeyboardVisualizer.jsx`** (`'use client'`):

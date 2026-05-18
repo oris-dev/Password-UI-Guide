@@ -15,10 +15,6 @@ export default function CoachFeedback() {
   ][strength];
 
   const renderFeedbackContent = () => {
-    if (value.length === 0) {
-      return <li className={styles.messageItem}>התחל להקליד כדי לקבל משוב...</li>;
-    }
-
     if (feedback.length > 0) {
       return feedback.map((msg, index) => (
         <li key={index} className={styles.messageItem}>
@@ -27,7 +23,7 @@ export default function CoachFeedback() {
       ));
     }
 
-    if (strength === 4) {
+    if (value.length > 0 && strength === 4) {
       return <li className={styles.messageItem} style={{ color: 'var(--wp--preset--color--vivid-green-cyan)', fontWeight: 'bold' }}>כל הכבוד! הסיסמה שלך חזקה ובטוחה.</li>;
     }
 

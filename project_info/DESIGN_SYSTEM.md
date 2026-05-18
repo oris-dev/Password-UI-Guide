@@ -4,8 +4,8 @@ This document defines the visual language and design tokens for the Password Coa
 
 ## Core Principles
 - **RTL First**: All components are designed for Hebrew layout (`dir="rtl"`).
+- **Rule Elimination**: Instead of showing errors, the UI shows a "roadmap" of rules that disappear as they are met.
 - **State-Based Feedback**: Colors transition from Neutral -> Warm Yellow -> Success Green based on password strength.
-- **Conversational**: Clear and friendly Hebrew messaging.
 
 ## Design Tokens (CSS Variables)
 
