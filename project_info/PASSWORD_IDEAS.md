@@ -17,3 +17,5 @@ This document contains strategies and tips to help users create memorable yet se
 
 ## UI Implementation
 The `PasswordIdeas.jsx` component displays this information to the user at the bottom of the main interface.
+
+**Layout Note:** This section will share the same area as the instructions. The layout will be split evenly: 50% for instructions and 50% for these recommendations.

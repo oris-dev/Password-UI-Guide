@@ -65,3 +65,35 @@
   border-radius: var(--border-radius-m);
   box-shadow: var(--shadow-soft);
 }
+
+.splitSection {
+  display: flex;
+  gap: var(--wp--preset--spacing--50);
+  width: 100%;
+  align-items: stretch;
+}
+
+.splitSection > * {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .splitSection {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 420px) {
+  .main {
+    padding: var(--wp--preset--spacing--30);
+  }
+  
+  .container {
+    padding: var(--wp--preset--spacing--30);
+    gap: var(--wp--preset--spacing--30);
+  }
+
+  .splitSection {
+    gap: var(--wp--preset--spacing--30);
+  }
+}

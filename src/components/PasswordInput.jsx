@@ -4,7 +4,7 @@ import { setPassword } from '../lib/features/password/passwordSlice';
 import { useState } from 'react';
 import styles from '../styles/PasswordInput.module.css';
 
-export default function PasswordInput() {
+export default function PasswordInput({ onShowIdeas }) {
   const dispatch = useDispatch();
   const password = useSelector((state) => state.password.value);
   const [showPassword, setShowPassword] = useState(false);
@@ -29,6 +29,14 @@ export default function PasswordInput() {
           className={styles.toggleButton}
         >
           {showPassword ? 'הסתר' : 'הצג'}
+        </button>
+        <button 
+          type="button"
+          onClick={onShowIdeas}
+          className={styles.ideasButton}
+          title="קבל רעיונות לסיסמה"
+        >
+          💡
         </button>
       </div>
     </div>
