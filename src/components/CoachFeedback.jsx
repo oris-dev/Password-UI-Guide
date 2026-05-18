@@ -16,11 +16,18 @@ export default function CoachFeedback() {
 
   const renderFeedbackContent = () => {
     if (feedback.length > 0) {
-      return feedback.map((msg, index) => (
-        <li key={index} className={styles.messageItem}>
-          {msg}
-        </li>
-      ));
+      return feedback.map((msg, index) => {
+        const isHebrewAlert = msg === 'כתבו באותיות באנגלית בלבד';
+        return (
+          <li 
+            key={index} 
+            className={styles.messageItem}
+            style={isHebrewAlert ? { fontWeight: 'bold', color: 'var(--strength-1)' } : {}}
+          >
+            {msg}
+          </li>
+        );
+      });
     }
 
     if (value.length > 0 && strength === 4) {
