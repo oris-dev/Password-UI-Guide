@@ -9,12 +9,11 @@
    4. The Update: React sees that the Redux Brain has changed.
        * The Input sees Strength: 4 and turns Success Green.
        * The Feedback sees the new state and displays: "סיסמה חזקה מאוד!" (Very strong password!).
-       * The Keyboard sees that the symbol rule is met and stops the "Invite" glow.
 
   ## Data Flow Architecture
   The project uses a Unidirectional Data Flow:
 
    1. Action: User types a letter in PasswordInput.
    2. Dispatch: The input sends the new string to the Redux Brain (setPassword).
-   3. Calculation: Redux updates the state. It determines if the password is now "Strong" and which keys should "Glow."
-   4. Reaction: The CoachFeedback and KeyboardVisualizer components "listen" to the state change and re-render instantly with the new visuals.
+   3. Calculation: Redux updates the state. It determines if the password is now "Strong".
+   4. Reaction: The CoachFeedback component "listens" to the state change and re-render instantly with the new visuals.

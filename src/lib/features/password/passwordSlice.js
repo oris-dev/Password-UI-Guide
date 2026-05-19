@@ -19,7 +19,6 @@ const initialState = {
     MESSAGES.LOWER,
     MESSAGES.SYMBOL,
   ],
-  activeKeys: {}, // Map of keys to highlight
 };
 
 const SYMBOLS = '!@#$%^&*()_+=-[]{}|;:\'",.<>?/'.split('');
@@ -27,7 +26,6 @@ const SYMBOLS = '!@#$%^&*()_+=-[]{}|;:\'",.<>?/'.split('');
 const validatePassword = (password) => {
   let strength = 0;
   const feedback = [];
-  const activeKeys = {};
 
   // 1. Hebrew Character Check (Critical Blocker)
   const hasHebrew = /[\u0590-\u05FF]/.test(password);
@@ -64,8 +62,6 @@ const validatePassword = (password) => {
     strength += 1;
   } else {
     feedback.push(MESSAGES.SYMBOL);
-    // Invite symbols
-    SYMBOLS.slice(0, 10).forEach(s => activeKeys[s] = 'invite');
   }
 
   // 5. Sequence Check (Dynamic ASCII Delta Algorithm)
@@ -90,36 +86,14 @@ const validatePassword = (password) => {
   const hasSequence = isSequence(password);
   if (hasSequence) {
     feedback.push(MESSAGES.SEQUENCE);
-    // Mark sequence keys to avoid
-    const lastChar = password.slice(-1).toLowerCase();
-    const secondLastChar = password.slice(-2, -1).toLowerCase();
-    
-    const lastCode = lastChar.charCodeAt(0);
-    const secondLastCode = secondLastChar.charCodeAt(0);
-    
-    // Predict next character in sequence to mark as 'avoid'
-    let nextCode;
-    if (lastCode === secondLastCode + 1) nextCode = lastCode + 1;
-    if (lastCode === secondLastCode - 1) nextCode = lastCode - 1;
-    
-    if (nextCode) {
-      const nextChar = String.fromCharCode(nextCode).toUpperCase();
-      activeKeys[nextChar] = 'avoid';
-    }
   } else if (password.length > 0) {
     strength += 1;
   }
 
-  // Confirmation state for typed keys
-  password.split('').forEach(char => {
-    const upperChar = char.toUpperCase();
-    activeKeys[upperChar] = 'confirmation';
-  });
-
   // Final Strength adjustment: if Hebrew is present, strength is 0
   const finalStrength = hasHebrew ? 0 : Math.floor(strength);
 
-  return { strength: finalStrength, feedback, activeKeys };
+  return { strength: finalStrength, feedback };
 };
 
 export const passwordSlice = createSlice({
@@ -128,12 +102,11 @@ export const passwordSlice = createSlice({
   reducers: {
     setPassword: (state, action) => {
       const newValue = action.payload;
-      const { strength, feedback, activeKeys } = validatePassword(newValue);
+      const { strength, feedback } = validatePassword(newValue);
       
       state.value = newValue;
       state.strength = strength;
       state.feedback = feedback;
-      state.activeKeys = activeKeys;
     },
     resetStore: (state) => {
       return initialState;

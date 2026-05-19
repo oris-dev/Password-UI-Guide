@@ -15,7 +15,6 @@
 - **RTL First**: All UI components must be designed for RTL (`dir="rtl"`).
 - **Visual Language**: State-based color system (Neutral -> Warm Yellow -> Success Green) for password strength.
 - **Coach Interface**: Real-time feedback instead of static validation.
-- **Keyboard Visualizer**: Interactive component that highlights keys based on user input.
 
 ## Coding Standards
 - Prefer functional components and hooks.
@@ -24,7 +23,7 @@
 - Use explicit types for state management and algorithm rules.
 
 ## Directory Structure
-- `/src/components/`: UI components (Coach, Keyboard, Input).
+- `/src/components/`: UI components (Coach, Input).
 - `/src/hooks/`: Logic for password checking and state.
 - `/src/styles/`: Global styles and custom CSS variables for the visual language.
 - `/src/utils/`: Helper functions and Hebrew message constants.
