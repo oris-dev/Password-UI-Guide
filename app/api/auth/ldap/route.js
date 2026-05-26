@@ -23,18 +23,45 @@ const db = {
 
 export async function POST(request) {
   try {
-    const { username, password } = await request.json();
+    const { username, password, mode } = await request.json();
 
     // Normalization logic (same as our LDAP server)
     const normalizedInput = username.toLowerCase().replace(/\s+/g, '');
 
-    const entryKey = Object.keys(db).find(
-      (key) => key.toLowerCase().replace(/\s+/g, '') === normalizedInput
-    );
+    // Improved lookup: check both the full DN (key) AND the uid property
+    const entryKey = Object.keys(db).find((key) => {
+      const normalizedKey = key.toLowerCase().replace(/\s+/g, '');
+      const user = db[key];
+      const normalizedUid = user.uid.toLowerCase().replace(/\s+/g, '');
+      
+      return normalizedKey === normalizedInput || normalizedUid === normalizedInput;
+    });
 
     const user = db[entryKey];
 
-    if (user && user.userPassword === password) {
+    if (!user) {
+      return new Response(JSON.stringify({
+        success: false,
+        message: 'משתמש לא נמצא במערכת'
+      }), {
+        status: 404,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Search mode: just check if user exists and return non-sensitive data
+    if (mode === 'search') {
+      const { userPassword, ...safeUserData } = user;
+      return new Response(JSON.stringify({
+        success: true,
+        user: { dn: entryKey, ...safeUserData }
+      }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    if (user.userPassword === password) {
       // Remove password before sending user data back
       const { userPassword, ...safeUserData } = user;
       
@@ -49,7 +76,7 @@ export async function POST(request) {
 
     return new Response(JSON.stringify({
       success: false,
-      message: 'Invalid Distinguished Name or password'
+      message: 'סיסמה שגויה'
     }), {
       status: 401,
       headers: { 'Content-Type': 'application/json' },
